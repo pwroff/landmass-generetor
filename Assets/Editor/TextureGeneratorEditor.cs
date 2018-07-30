@@ -3,20 +3,21 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(MapGenerator))]
-public class MapGeeratorEditor : Editor {
+[CustomEditor(typeof(GenerateTexture))]
+public class GenerateTextureEditor : Editor
+{
 
     public override void OnInspectorGUI()
     {
-        MapGenerator mapGen = (MapGenerator)target;
+        GenerateTexture mapGen = (GenerateTexture)target;
         if (DrawDefaultInspector())
         {
             if (mapGen.autoUpdate)
-                mapGen.GenerateMap();
+                mapGen.UpdateTexture();
         }
         if (GUILayout.Button("Generate"))
         {
-            mapGen.GenerateMap();
+            mapGen.UpdateTexture();
         }
     }
 
